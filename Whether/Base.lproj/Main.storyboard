@@ -41,6 +41,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" textContentType="address-level1"/>
+                                        <connections>
+                                            <action selector="searchFiels:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Loa-lE-fWW"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyC-lz-oZZ">
                                         <rect key="frame" x="374" y="1.3333333333333321" width="40" height="37.666666666666671"/>
@@ -50,6 +53,9 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                        <connections>
+                                            <action selector="SearchBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qef-mf-31g"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -145,6 +151,9 @@
                             <constraint firstItem="zIo-mS-lV9" firstAttribute="top" secondItem="wYH-yT-ifG" secondAttribute="bottom" id="qdl-cA-WgP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SearchFiledText" destination="ge8-ea-ioY" id="zTI-sR-Oqk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

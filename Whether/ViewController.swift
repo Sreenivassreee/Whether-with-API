@@ -33,7 +33,6 @@ class ViewController: UIViewController , UITextFieldDelegate{
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         SearchFiledText.endEditing(true)
         print(SearchFiledText.text!)
-        
         return true
     }
     

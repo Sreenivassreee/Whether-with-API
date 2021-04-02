@@ -8,7 +8,7 @@
 import Foundation
 
 struct DataManager {
-    var baseUrlL:String="https://api.openweathermap.org/data/2.5/weather?&appid=3c20e0d804976a631bfb593d7ccaea50"
+    var baseUrlL:String="https://api.openweathermap.org/data/2.5/weather?&appid=3c20e0d804976a631bfb593d7ccaea50&units=matric"
     
     func fetchData(city:String) {
         let finalUrl=baseUrlL+"&q="+city
@@ -22,8 +22,9 @@ struct DataManager {
                 do {
                     
                     if let dataa=data{
-                        var safe = String(data: dataa, encoding: .utf8)
-                        print(safe)
+                        let safe = String(data: dataa, encoding: .utf8)
+                        print(safe!)
+                        self.parsedJsonData(parsedData: dataa)
                     }
                     
                     //                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [[String : Any]]
@@ -43,6 +44,17 @@ struct DataManager {
         //
         
         
+        
+        
+    }
+    
+    func parsedJsonData(parsedData:Data) {
+        let decoder = JSONDecoder()
+        do{
+          try  decoder.decode(MainData.self, from: parsedData)
+        }catch{
+            print(error)
+        }
         
     }
 }

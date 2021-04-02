@@ -23,7 +23,7 @@ struct DataManager {
                     
                     if let dataa=data{
                         let safe = String(data: dataa, encoding: .utf8)
-                        print(safe!)
+//                        print(safe!)
                         self.parsedJsonData(parsedData: dataa)
                     }
                     
@@ -51,7 +51,8 @@ struct DataManager {
     func parsedJsonData(parsedData:Data) {
         let decoder = JSONDecoder()
         do{
-          try  decoder.decode(MainData.self, from: parsedData)
+         let decodedData =  try  decoder.decode(MainData.self, from: parsedData)
+            print(decodedData.weather[0].description)
         }catch{
             print(error)
         }

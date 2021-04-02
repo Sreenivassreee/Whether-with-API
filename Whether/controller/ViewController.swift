@@ -28,7 +28,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         SearchFiledText.endEditing(true)
         
-        print(SearchFiledText.text!)
+//        print(SearchFiledText.text!)
         return true
     }
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController , UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(SearchFiledText.text!)
+//        print(SearchFiledText.text!)
         if SearchFiledText.text != ""{
          manager.fetchData(city: SearchFiledText.text!)
         SearchFiledText.text=""

@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController , UITextFieldDelegate{
+    
+    var manager = DataManager()
 
     @IBOutlet weak var SearchFiledText: UITextField!
     override func viewDidLoad() {
@@ -32,13 +34,18 @@ class ViewController: UIViewController , UITextFieldDelegate{
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         SearchFiledText.endEditing(true)
-        print(SearchFiledText.text!)
+
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print(SearchFiledText.text!)
+        if SearchFiledText.text != ""{
+         manager.fetchData(city: SearchFiledText.text!)
         SearchFiledText.text=""
-    
+        }else{
+            SearchFiledText.placeholder="Please Enter City name"
+        }
     }
     
     

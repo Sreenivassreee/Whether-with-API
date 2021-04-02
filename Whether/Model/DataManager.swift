@@ -12,30 +12,35 @@ struct DataManager {
     
     func fetchData(city:String) {
         let finalUrl=baseUrlL+"&q="+city
-    print(finalUrl)
-   
+        print(finalUrl)
+        
         let url = URL(string: finalUrl)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
                 do {
-
-                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [[String : Any]]
-                    print(parsedData)
-//                    for item in parsedData
-//                    {
-//                        let id = item["id"] as! String
-//                        print(id)
-//                    }
-
+                    
+                    if let dataa=data{
+                        var safe = String(data: dataa, encoding: .utf8)
+                        print(safe)
+                    }
+                    
+                    //                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [[String : Any]]
+                    //                    print(parsedData)
+                    //                    for item in parsedData
+                    //                    {
+                    //                        let id = item["id"] as! String
+                    //                        print(id)
+                    //                    }
+                    
                 } catch let error as NSError {
                     print(error.localizedDescription)
                 }
             }
-
-            }.resume()
-        
+            
+        }.resume()
+        //
         
         
         

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F4579DA5261786C50042F0BC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4579DA4261786C50042F0BC /* DataManager.swift */; };
 		F4579DAD2617981B0042F0BC /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4579DAC2617981B0042F0BC /* MainData.swift */; };
+		F477FE5126182D2A005F3B7B /* RequiredData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477FE5026182D2A005F3B7B /* RequiredData.swift */; };
 		F4E764AE261228EE00794C03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E764AD261228EE00794C03 /* AppDelegate.swift */; };
 		F4E764B0261228EE00794C03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E764AF261228EE00794C03 /* SceneDelegate.swift */; };
 		F4E764B2261228EE00794C03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E764B1261228EE00794C03 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		F4579DA4261786C50042F0BC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F4579DAC2617981B0042F0BC /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
+		F477FE5026182D2A005F3B7B /* RequiredData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredData.swift; sourceTree = "<group>"; };
 		F4E764AA261228EE00794C03 /* Whether.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whether.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4E764AD261228EE00794C03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4E764AF261228EE00794C03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				F4579DA4261786C50042F0BC /* DataManager.swift */,
 				F4579DAC2617981B0042F0BC /* MainData.swift */,
+				F477FE5026182D2A005F3B7B /* RequiredData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			files = (
 				F4579DAD2617981B0042F0BC /* MainData.swift in Sources */,
 				F4E764B2261228EE00794C03 /* ViewController.swift in Sources */,
+				F477FE5126182D2A005F3B7B /* RequiredData.swift in Sources */,
 				F4579DA5261786C50042F0BC /* DataManager.swift in Sources */,
 				F4E764AE261228EE00794C03 /* AppDelegate.swift in Sources */,
 				F4E764B0261228EE00794C03 /* SceneDelegate.swift in Sources */,

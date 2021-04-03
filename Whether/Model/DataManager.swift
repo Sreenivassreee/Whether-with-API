@@ -8,12 +8,10 @@
 import Foundation
 
 struct DataManager {
-    var baseUrlL:String="https://api.openweathermap.org/data/2.5/weather?&appid=3c20e0d804976a631bfb593d7ccaea50&units=matric"
+    var baseUrlL:String="https://api.openweathermap.org/data/2.5/weather?&appid=3c20e0d804976a631bfb593d7ccaea50&units=metric"
     
     func fetchData(city:String) {
         let finalUrl=baseUrlL+"&q="+city
-        print(finalUrl)
-        
         let url = URL(string: finalUrl)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
@@ -27,13 +25,6 @@ struct DataManager {
                         self.parsedJsonData(parsedData: dataa)
                     }
                     
-                    //                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [[String : Any]]
-                    //                    print(parsedData)
-                    //                    for item in parsedData
-                    //                    {
-                    //                        let id = item["id"] as! String
-                    //                        print(id)
-                    //                    }
                     
                 } catch let error as NSError {
                     print(error.localizedDescription)
@@ -52,7 +43,9 @@ struct DataManager {
         let decoder = JSONDecoder()
         do{
          let decodedData =  try  decoder.decode(MainData.self, from: parsedData)
-            print(decodedData.weather[0].description)
+//            print(decodedData.weather[0].description)
+            let requiredData = RequiredData(temp: decodedData.main.temp, cityName: decodedData.weather[0].description, id: Int(decodedData.weather[0].id))
+            print(requiredData.cityName)
         }catch{
             print(error)
         }

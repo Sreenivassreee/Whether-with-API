@@ -10,13 +10,13 @@ import UIKit
 class ViewController: UIViewController , UITextFieldDelegate{
     
     var manager = DataManager()
-
+    
     @IBOutlet weak var SearchFiledText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         SearchFiledText.delegate=self
     }
-
+    
     @IBAction func searchFiels(_ sender: UITextField) {
         print(sender.text!)
     }
@@ -28,21 +28,19 @@ class ViewController: UIViewController , UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         SearchFiledText.endEditing(true)
         
-//        print(SearchFiledText.text!)
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         SearchFiledText.endEditing(true)
-
+        
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        print(SearchFiledText.text!)
         if SearchFiledText.text != ""{
-         manager.fetchData(city: SearchFiledText.text!)
-        SearchFiledText.text=""
+            manager.fetchData(city: SearchFiledText.text!)
+            SearchFiledText.text=""
         }else{
             SearchFiledText.placeholder="Please Enter City name"
         }

@@ -45,7 +45,5 @@ class ViewController: UIViewController , UITextFieldDelegate{
             SearchFiledText.placeholder="Please Enter City name"
         }
     }
-    
-    
 }
 

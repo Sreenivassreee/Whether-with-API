@@ -23,6 +23,12 @@ class ViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func SearchBtnPressed(_ sender: UIButton) {
         print(SearchFiledText.text!)
+        if SearchFiledText.text != ""{
+            manager.fetchData(city: SearchFiledText.text!)
+            SearchFiledText.text=""
+        }else{
+            SearchFiledText.placeholder="Please Enter City name"
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

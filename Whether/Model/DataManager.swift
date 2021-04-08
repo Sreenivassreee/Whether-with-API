@@ -17,12 +17,12 @@ struct DataManager {
                 print(error!.localizedDescription)
             } else {
                 do {
-                    if let dataa=data{
+                    if let dataa = data{
                         let safe = String(data: dataa, encoding: .utf8)
 //                        print(safe!)
                         self.parsedJsonData(parsedData: dataa)
                     }
-                } catch let error as NSError {
+                }catch let error as NSError {
                     print(error.localizedDescription)
                 }
             }
@@ -36,6 +36,7 @@ struct DataManager {
 //            print(decodedData.weather[0].description)
             let requiredData = RequiredData(temp: decodedData.main.temp, cityName: decodedData.weather[0].description, id: Int(decodedData.weather[0].id))
             print(requiredData.cityName)
+            print(requiredData.condition)
         }catch{
             print(error)
         }

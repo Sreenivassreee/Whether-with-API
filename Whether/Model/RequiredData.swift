@@ -15,7 +15,7 @@ struct RequiredData {
     var tempString:String {
         return String(format:" %.1f", temp)
     }
-    var condition:String {
+    var condition : String {
         switch id {
         case 200...232:
             return "cloud.bolt"

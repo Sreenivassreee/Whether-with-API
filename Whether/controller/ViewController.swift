@@ -9,18 +9,23 @@ import UIKit
 
 class ViewController: UIViewController , UITextFieldDelegate, DataManagerDelegate{
     
+    
+    
     var manager = DataManager()
     
     @IBOutlet weak var SearchFiledText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         SearchFiledText.delegate=self
         manager.delegate = self
     }
     
+    @IBOutlet weak var WeatherConditionIcon: UIImageView!
+    @IBOutlet weak var WeatherTemparature: UILabel!
+    @IBOutlet weak var Location: UILabel!
     @IBAction func searchFiels(_ sender: UITextField) {
-//        print(sender.text!)
+        //        print(sender.text!)
     }
     
     @IBAction func SearchBtnPressed(_ sender: UIButton) {
@@ -53,9 +58,18 @@ class ViewController: UIViewController , UITextFieldDelegate, DataManagerDelegat
             SearchFiledText.placeholder="Please Enter City name"
         }
     }
-    func didUpdateWeather(weather:RequiredData) {
-        print(weather.cityName)
+    func didUpdateWeather(_ weather:RequiredData) {
+        DispatchQueue.main.async {
+            print(weather.cityName)
+            self.Location.text=weather.cityName
+            self.WeatherTemparature.text=weather.tempString
+            self.WeatherConditionIcon.image=UIImage(systemName: weather.condition)
+        }
+        
+        
     }
-    
+    func didFailWithError(_ error: Error) {
+        print(error)
+    }
 }
 

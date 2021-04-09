@@ -8,7 +8,8 @@
 import Foundation
 
 protocol DataManagerDelegate {
-    func didUpdateWeather(weather:RequiredData)
+    func didUpdateWeather(_ weather:RequiredData)
+    func didFailWithError(_ error:Error)
 }
 
 struct DataManager {
@@ -21,32 +22,33 @@ struct DataManager {
         let url = URL(string: finalUrl)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
+                self.delegate?.didFailWithError(error as! Error)
                 print(error!.localizedDescription)
             } else {
                 do {
                     if let dataa = data{
-                        let safe = String(data: dataa, encoding: .utf8)
-                        
-                        if let whether = parsedJsonData(parsedData: dataa){
-                            self.delegate?.didUpdateWeather(weather:whether)
+                        if let whether = parsedJsonData(dataa){
+                            self.delegate?.didUpdateWeather(whether)
                             
                         }
                     }
                 }catch let error as NSError {
+                    self.delegate?.didFailWithError(error)
                     print(error.localizedDescription)
                 }
             }
         }.resume()
     }
     
-    func parsedJsonData(parsedData:Data)->RequiredData? {
+    func parsedJsonData(_ parsedData:Data)->RequiredData? {
         let decoder = JSONDecoder()
         do{
             let decodedData =  try  decoder.decode(MainData.self, from: parsedData)
-            let requiredData = RequiredData(temp: decodedData.main.temp, cityName: decodedData.weather[0].description, id: Int(decodedData.weather[0].id))
+            let requiredData = RequiredData(temp: decodedData.main.temp, cityName: decodedData.name, des: decodedData.weather[0].description, id: Int(decodedData.weather[0].id))
             return requiredData
         }catch{
-            print(error)
+            
+            self.delegate?.didFailWithError(error)
             return nil
         }
     }

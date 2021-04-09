@@ -10,7 +10,7 @@ import Foundation
 struct RequiredData {
     let temp:Double
     let cityName:String
-    
+    let des:String
     let id: Int
     var tempString:String {
         return String(format:" %.1f", temp)

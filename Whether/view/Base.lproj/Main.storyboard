@@ -147,7 +147,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Location" destination="S7e-S4-fhr" id="5hV-XZ-5Tm"/>
                         <outlet property="SearchFiledText" destination="ge8-ea-ioY" id="zTI-sR-Oqk"/>
+                        <outlet property="WeatherConditionIcon" destination="0b9-3M-cuC" id="Cgv-P1-hfZ"/>
+                        <outlet property="WeatherTemparature" destination="AEb-SQ-6Wj" id="Y41-VN-wkq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

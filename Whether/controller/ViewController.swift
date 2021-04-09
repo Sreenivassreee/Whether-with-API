@@ -7,18 +7,20 @@
 
 import UIKit
 
-class ViewController: UIViewController , UITextFieldDelegate{
+class ViewController: UIViewController , UITextFieldDelegate, DataManagerDelegate{
     
     var manager = DataManager()
     
     @IBOutlet weak var SearchFiledText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         SearchFiledText.delegate=self
+        manager.delegate = self
     }
     
     @IBAction func searchFiels(_ sender: UITextField) {
-        print(sender.text!)
+//        print(sender.text!)
     }
     
     @IBAction func SearchBtnPressed(_ sender: UIButton) {
@@ -51,5 +53,9 @@ class ViewController: UIViewController , UITextFieldDelegate{
             SearchFiledText.placeholder="Please Enter City name"
         }
     }
+    func didUpdateWeather(weather:RequiredData) {
+        print(weather.cityName)
+    }
+    
 }
 

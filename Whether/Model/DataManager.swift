@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 protocol DataManagerDelegate {
     func didUpdateWeather(_ weather:RequiredData)
@@ -17,9 +18,20 @@ struct DataManager {
     
     var delegate:DataManagerDelegate?
     
+    
+    
+    
     func fetchData(city:String) {
         let finalUrl=baseUrlL+"&q="+city
-        let url = URL(string: finalUrl)
+        getData(url:finalUrl)
+    }
+    
+    func fetchData(lan l: CLLocationDegrees,lon lo:CLLocationDegrees ) {
+        let finalUrl=baseUrlL+"&lat=\(l)&lon=\(lo)"
+        getData(url:finalUrl)
+    }
+    func getData(url url:String){
+        let url = URL(string: url)
         URLSession.shared.dataTask(with:url!) { (data, response, error) in
             if error != nil {
                 self.delegate?.didFailWithError(error as! Error)

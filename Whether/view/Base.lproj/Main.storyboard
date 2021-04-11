@@ -34,6 +34,9 @@
                                         <state key="normal" backgroundImage="location.circle.fill" catalog="system">
                                             <color key="titleColor" name="AccentColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="gio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A7X-77-F5b"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" clearsOnBeginEditing="YES" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ge8-ea-ioY">
                                         <rect key="frame" x="142" y="0.0" width="61" height="40"/>

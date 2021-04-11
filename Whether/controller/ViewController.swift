@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , UITextFieldDelegate, DataManagerDelegate{
+class ViewController: UIViewController{
     
     
     
@@ -28,6 +28,11 @@ class ViewController: UIViewController , UITextFieldDelegate, DataManagerDelegat
         //        print(sender.text!)
     }
     
+    
+  
+}
+
+extension ViewController: UITextFieldDelegate{
     @IBAction func SearchBtnPressed(_ sender: UIButton) {
         print(SearchFiledText.text!)
         if SearchFiledText.text != ""{
@@ -58,18 +63,19 @@ class ViewController: UIViewController , UITextFieldDelegate, DataManagerDelegat
             SearchFiledText.placeholder="Please Enter City name"
         }
     }
+}
+extension ViewController : DataManagerDelegate{
+    
     func didUpdateWeather(_ weather:RequiredData) {
         DispatchQueue.main.async {
             print(weather.cityName)
             self.Location.text=weather.cityName
             self.WeatherTemparature.text=weather.tempString
-            self.WeatherConditionIcon.image=UIImage(systemName: weather.condition)
-        }
-        
-        
-    }
+            self.WeatherConditionIcon.image=UIImage(systemName: weather.condition
+            )
+        } 
+}
     func didFailWithError(_ error: Error) {
         print(error)
     }
 }
-
